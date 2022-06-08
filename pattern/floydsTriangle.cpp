@@ -6,11 +6,13 @@ using namespace std;
 // 4444
 
 int main(){
-    int n;
+    int n,count;
+    count=1;
     cin>>n;
     for(int i=1;i<=n;i++){
         for(int j=1;j<=i;j++){
-            cout<<i;
+            cout<<count<<" ";
+            count++;
         }
         cout<<endl;
     }
