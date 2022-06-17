@@ -1,0 +1,6 @@
+// polymorphism
+// -compile time
+//    -function overloading
+//    -operator overloading
+// -Run-time
+//    -virtual functions
