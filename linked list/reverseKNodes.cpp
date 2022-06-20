@@ -31,37 +31,37 @@ void display(node* head){
         temp=temp->next;
     }
 }
-node* reverse(node* &head){
+node* reverseK(node* &head,int k){
+   
     node* prevPtr=NULL;
     node* currentPtr=head;
     node* nextPtr;
-    while(currentPtr!=NULL){
+    int count=0;
+    while(currentPtr!=NULL && count<k){
            nextPtr=currentPtr->next;
            currentPtr->next=prevPtr;
            prevPtr=currentPtr;
            currentPtr=nextPtr;
+           count++;
     }
-    return prevPtr;
+    if(nextPtr!=NULL){
+    head->next=reverseK(nextPtr,k);
+
 }
-//recursiveWay
-node* reverseRecur(node* &head){
-    if(head==NULL || head->next==NULL){
-        return head;
-    }
-    node* newhead=reverseRecur(head->next);
-    head->next->next=head;
-    head->next=NULL;
-    return newhead;
+return prevPtr;
 }
 int main(){
     node* head=NULL;
     insertAtTail(head,1);
     insertAtTail(head,2);
     insertAtTail(head,3);
+    insertAtTail(head,4);
+     insertAtTail(head,5);
+    insertAtTail(head,6);
     display(head);
     cout<<endl;
     // node* newhead=reverse(head);
-    node* newhead2=reverseRecur(head);
-    display(newhead2);
+    node* newhead=reverseK(head,2);
+    display(newhead);
     cout<<endl;
     return 0;}
