@@ -1,0 +1,27 @@
+//Whats doing?
+//Output-doing? Whats
+#include<iostream>
+#include<stack>
+using namespace std;
+
+void reverseSent(string s){
+    stack<string> st;
+    for(int i=0;i<s.length();i++){
+         string word="";
+         while(s[i]!=' ' && i<s.length()){
+            word+=s[i];
+            i++;
+         }
+         st.push(word);
+    }
+    while(!st.empty()){
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+    
+}
+int main(){
+    string s="Heyy how are you doing?";
+    reverseSent(s);
+    return 0;
+}
